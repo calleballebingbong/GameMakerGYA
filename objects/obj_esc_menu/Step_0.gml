@@ -32,7 +32,9 @@ if !instance_exists(obj_text_box) {
 					switch(pos) {
 						//start game
 						case 0:
-						visible = false
+						global.paused = !global.paused;
+						visible = global.paused;
+						depth = -999
 						break;
 				
 						//settings
