@@ -1,0 +1,1 @@
+NewEncounter([global.enemies.Monster2, global.enemies.Monster2], spr_bg_test)

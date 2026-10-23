@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"menusound",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":113.893875,
+  "exportDir":"",
+  "name":"menusound",
+  "parent":{
+    "name":"Te24D Åva gaem",
+    "path":"Te24D Åva gaem.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"menusound.MP3",
+  "volume":1.0,
+}
