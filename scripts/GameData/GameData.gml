@@ -92,7 +92,7 @@ global.party =
 		mpMax: 15,
 		strength: 6,
 		sprites: {idle: spr_player_down, attack: spr_player_right, defend: spr_player_left, down: spr_player_up},
-		actions : [global.actionLibrary.attack, global.actionLibrary.ice,global.actionLibrary.fire, global.actionLibrary.item]
+		actions : [global.actionLibrary.attack, global.actionLibrary.ice, global.actionLibrary.item]
 	}
 ];
 

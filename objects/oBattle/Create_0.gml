@@ -104,8 +104,9 @@ function BattleStateAction()
 						}
 					}
 
-			
-			//turn sub menus into an array
+				}
+
+				//turn sub menus into an array
 				var _subMenusArray = variable_struct_get_names(_subMenus);
 				for (var i = 0; i < array_length(_subMenusArray); i++)
 				{
@@ -117,7 +118,6 @@ function BattleStateAction()
 					//add submenu into main menu
 					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true]);
 				}
-			}
 			
 				Menu(x+10, y+110, _menuOptions, , 74, 60);
 			}
