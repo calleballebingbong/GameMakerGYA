@@ -85,6 +85,7 @@ function BattleStateAction()
 				for (var i = 0; i < array_length(_actionList); i++)
 				{
 					var _action = _actionList[i];
+					if (variable_struct_exists(_action, "inventoryAction")) continue;
 					var _available = true //add mp cost later
 					var _namAndCount = _action.name; //modify later for items
 					if (_action.subMenu == -1) //check for error on submenu-----
@@ -105,6 +106,36 @@ function BattleStateAction()
 					}
 
 				}
+
+				var _itemIds = variable_struct_get_names(global.itemCatalog);
+				var _itemOptions = [];
+				for (var i = 0; i < array_length(_itemIds); i++)
+				{
+					var _itemId = _itemIds[i];
+					var _itemCount = global.itemManager.Count(_itemId);
+					if (_itemCount <= 0) continue;
+
+					var _item = global.itemCatalog[$ _itemId];
+					var _itemAction =
+					{
+						name: _item.name,
+						description: global.actionLibrary.item.description,
+						itemId: _itemId,
+						targetRequired: global.actionLibrary.item.targetRequired,
+						targetEnemyByDefault: global.actionLibrary.item.targetEnemyByDefault,
+						targetAll: global.actionLibrary.item.targetAll,
+						userAnimation: global.actionLibrary.item.userAnimation,
+						effectSprite: global.actionLibrary.item.effectSprite,
+						effectOnTarget: global.actionLibrary.item.effectOnTarget,
+						func: global.actionLibrary.item.func
+					};
+					array_push(_itemOptions, [_item.name + " x" + string(_itemCount), MenuSelectAction, [_unit, _itemAction], true]);
+				}
+				if (array_length(_itemOptions) == 0)
+				{
+					array_push(_itemOptions, ["No items", -1, -1, false]);
+				}
+				variable_struct_set(_subMenus, "Items", _itemOptions);
 
 				//turn sub menus into an array
 				var _subMenusArray = variable_struct_get_names(_subMenus);
@@ -231,6 +262,10 @@ function BattleStateVictoryCheck()
 				global.party[i].hp = partyUnits[i].hp
 			}
 			instance_activate_all();
+			if (encounterId == "Enemy1")
+			{
+				global.enemy1Defeated = true;
+			}
 			instance_destroy(creator);
 			instance_destroy();
 		}

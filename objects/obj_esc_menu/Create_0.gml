@@ -7,6 +7,9 @@ op_space = 16;
 pos = 0;
 visible = false
 global.paused = false;
+inventoryOpen = false;
+inventoryCategory = 0;
+inventorySelection = 0;
 //pause menu
 option[0, 0] = "Back";
 option[0, 1] = "Settings";

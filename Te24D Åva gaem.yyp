@@ -100,6 +100,7 @@
     {"id":{"name":"spr_guy","path":"sprites/spr_guy/spr_guy.yy",},},
     {"id":{"name":"spr_main_font_Big","path":"sprites/spr_main_font_Big/spr_main_font_Big.yy",},},
     {"id":{"name":"spr_main_font","path":"sprites/spr_main_font/spr_main_font.yy",},},
+    {"id":{"name":"spr_menu_background_black","path":"sprites/spr_menu_background_black/spr_menu_background_black.yy",},},
     {"id":{"name":"spr_menu_background_green","path":"sprites/spr_menu_background_green/spr_menu_background_green.yy",},},
     {"id":{"name":"spr_menu_background_purple","path":"sprites/spr_menu_background_purple/spr_menu_background_purple.yy",},},
     {"id":{"name":"spr_menu_background","path":"sprites/spr_menu_background/spr_menu_background.yy",},},
