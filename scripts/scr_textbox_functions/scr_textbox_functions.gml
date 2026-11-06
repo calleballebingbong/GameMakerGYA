@@ -104,7 +104,7 @@ function scr_text(_text){
 				break;
 			
 			
-			case "npc":
+			case "Punk":
 				speaker_sprite[page_number] = spr_npc_speak;
 				textb_spr[page_number] = spr_menu_background_green;
 				snd[page_number] = snd_voice_wha;
@@ -116,7 +116,13 @@ function scr_text(_text){
 			snd[page_number] = snd_voice_pluh;
 			break;
 			
-			case "Pubert":
+			case "Guide":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
+			case "Enemy1":
 			speaker_sprite[page_number] = spr_npc_speak;
 			textb_spr[page_number] = spr_menu_background_purple;
 			snd[page_number] = snd_voice_pluh;

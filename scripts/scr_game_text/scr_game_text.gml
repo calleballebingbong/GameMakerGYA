@@ -2,28 +2,41 @@
 function scr_game_text(_text_id){
 switch(_text_id) {
 	
-	
 
-	case "NPC 1":
-		scr_text("yo wsg! my name is gurt!", "npc");
-			scr_text_float(19, 24) // to float text
-			scr_text_color(19, 24, c_yellow, c_yellow, c_yellow, c_yellow); // to change color of text
-			scr_text_shake(0,7) // shake text
-			scr_option("Yogurt", "NPC 1 - Gurt");
-			scr_option("Sybau", "NPC 1 - SYBAU");
+
+	case "Punk":
+	if (!global.punkQuest){
+		scr_text("Hey fresh meat!", "Punk");
+			scr_text_color(5,17, c_red, c_red, c_red, c_red)
+		scr_text("Yeah you, what do you want?", "Punk");
+			scr_option("I need to get through", "Punk-through");
+			scr_option("Nevermind", "Punk-nvm");
 		break;
-		
-	case "NPC 1 - Gurt":
-		scr_text("YO!", "npc")
+	}
+	else if (global.punkQuest && global.punkDoor){
+		scr_text("Fine, Come on through.", "Punk")
 		break;
-		
-	case "NPC 1 - SYBAU":
-		scr_text("KYS", "npc")
-		scr_text_color(0, 3, c_red, c_red, c_red, c_red)
+	}
+	else {
+		scr_text("Comeback when you have what I need.", "Punk")
 		break;
+	}
 		
+	case "Punk-through":
+		if (!global.punkQuest){
+		scr_text("Fat chance, unless you have something of worth to me.", "Punk")
+		global.punkQuest = true;
+		break;
+		}
 		
+	case "Punk-nvm":
+		if (!global.punkDoor){
+		scr_text("Quit wasting my time.", "Punk")
+		global.punkDoor = true
+		break;
+		}
 		
+	
 		
 		
 	case "NPC 2":
@@ -82,12 +95,39 @@ switch(_text_id) {
 	scr_text("YA KNOW IT!", "Vidar");
 	break;
 	
-	case "Pubert":
-		scr_text("Hi! I'm Pubert", "Pubert");
-			scr_text_float(0, 10) // to float text
+	case "Guide":
+		scr_text("Hi! I'm Pubert", "Guide");
+			scr_text_float(0, 15) // to float text
 			scr_text_color(0, 15, c_yellow, c_yellow, c_yellow, c_yellow); // to change color of text
 			scr_text_shake(0,7) // shake text
+			scr_option("Hi Pubert!", "Guide-Hi")
+			scr_option("Bye", "Guide-Bye")
 		break;
+		
+	case "Guide-Hi":
+		scr_text("Welcome to AVA Gymnasium! I'll be your guide, feel free to take a look around!", "Guide");
+		break;
+		
+	case "Guide-Bye":
+		scr_text("Rude", "Guide")
+		scr_text_color(0,5, c_red, c_red, c_red, c_red)
+		break;
+		
+	case "Enemy1":
+		scr_text("You wanna mess with me?","Enemy1")
+		scr_option("Yes", "Enemy1Y")
+		break;
+	case "Enemy1Y":
+		if (!global.enemy1Defeated){
+		NewEncounter([global.enemies.Monster1, global.enemies.Monster2], spr_bg_test, "Enemy1")
+		global.punkDoor = true
+		break;
+		}
+		else{
+		scr_text("You bested me!", "Enemy1")
+		break;
+		}
+
 }
 
 }

@@ -5,6 +5,7 @@ global.actionLibrary =
 	{
 		name : "Attack",
 		description : "{0} attacks!",
+		menuDescription : "A basic physical attack. Damage is based on the user's strength.",
 		subMenu : -1,
 		targetRequired : true,
 		targetEnemyByDefault : true,
@@ -22,6 +23,7 @@ global.actionLibrary =
 	{
 		name : "Ice",
 		description : "{0} cast Ice!",
+		menuDescription : "Deals 10-15 damage to the selected enemy.",
 		subMenu : "Magic",
 		mpCost : 4,
 		targetRequired : true,
@@ -40,7 +42,8 @@ global.actionLibrary =
 	fire :
 	{
 		name : "Fire",
-		description : "{0} cast Ice!",
+		description : "{0} cast Fire!",
+		menuDescription : "Deals 10-15 damage to the selected enemy.",
 		subMenu : "Magic",
 		mpCost : 4,
 		targetRequired : true,
@@ -58,16 +61,20 @@ global.actionLibrary =
 	},
 	item :
 	{
-		name : "Testitem1",
-		description : "{0} item!",
-		subMenu : "items",
-		mpCost : 4,
+		name : "Items",
+		description : "{0} used an item!",
+		subMenu : "Items",
+		inventoryAction : true,
 		targetRequired : true,
 		targetEnemyByDefault : false, //0: party/self, 1: enemy
 		targetAll : MODE.NEVER,
 		userAnimation : "attack",
 		effectSprite : spr_attackeffect,
 		effectOnTarget : MODE.ALWAYS,
+		func : function(_user, _targets)
+		{
+			global.itemManager.Use(oBattle.currentAction.itemId, _targets[0]);
+		}
 	}
 	
 	
@@ -92,7 +99,7 @@ global.party =
 		mpMax: 15,
 		strength: 6,
 		sprites: {idle: spr_player_down, attack: spr_player_right, defend: spr_player_left, down: spr_player_up},
-		actions : [global.actionLibrary.attack, global.actionLibrary.ice, global.actionLibrary.item]
+		actions : [global.actionLibrary.attack, global.actionLibrary.ice, global.actionLibrary.fire, global.actionLibrary.item]
 	}
 ];
 

@@ -1,1 +1,1 @@
-text_id = "NPC 1"
+text_id = "Punk"

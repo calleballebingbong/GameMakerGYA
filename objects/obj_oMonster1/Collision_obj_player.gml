@@ -1,1 +1,2 @@
 NewEncounter([global.enemies.Monster1, global.enemies.Monster2], spr_bg_test)
+global.punkDoor = true
