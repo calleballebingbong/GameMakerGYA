@@ -127,7 +127,93 @@ switch(_text_id) {
 		scr_text("You bested me!", "Enemy1")
 		break;
 		}
-
+	case "f4_hallway_teacher":
+	if (!global.teacher1spoken){
+		scr_text("You are very late... go take the exam in classroom 4244 immediately","f4_hallway_teacher")
+		global.teacher1spoken = true;
+		break;
+	} 
+	else {
+		scr_text("Have you taken the exam? If not then GET TO WORK!!!", "f4_hallway_teacher")
+		break;
+	}
+	
+	case "f4_fake_teacher":
+	if (!global.fakeTeacherDefeated){
+	scr_text("Have you come to take your exam?", "f4_fake_teacher")
+	scr_option("Yes", "f4_fake_teacher_yes")
+	scr_option("No", "f4_fake_teacher_no")
+	break;
+	} else{
+		scr_text("Leave me alone... I just wanted your lunch anyways.", "f4_fake_teacher")
+		scr_text("Your real exam is in classroom 4247.", "f4_fake_teacher")
+		break;
+	}
+	
+	case "f4_fake_teacher_yes":
+	scr_text("WELL TOOOOO BAD... I am a TIBBLE STUDENT, THERE IS NO EXAM...", "f4_fake_teacher")
+	scr_text("Or... there is.", "f4_fake_teacher")
+	scr_text("Just not in here.", "f4_fake_teacher")
+	scr_text("Its actually in classroom 4247.", "f4_fake_teacher")
+	scr_text("But never mind that, YOU WONT MAKE IT OUT OF HERE!!!", "f4_fake_teacher")
+	scr_option("Okay buddy bring it on!","fakeFight_start")
+	break;
+	
+	case "fakeFight_start":
+	if(!global.fakeTeacherDefeated){
+	NewEncounter([global.enemies.Monster1, global.enemies.Monster2], spr_bg_test, "f4_fake_teacher")
+	global.fakeTeacherDefeated = true;
+	break;
+	} else {
+		scr_text("Log out pal.", "f4_fake_teacher")
+		break;
+	}
+	
+	case "f4_fake_teacher_no":
+	scr_text("If you are not going to take the exam then LEAVE.", "f4_fake_teacher")
+	break;
+	
+	case "f4_exam_teacher":
+	if (!global.examPass){
+		scr_text("You finally came to take your exam i see. Lets get straight to it.", "f4_exam_teacher")
+		scr_text("What is 8 times 8?", "f4_exam_teacher")
+		scr_option("64", "exam1")
+		scr_option("81", "exam_fail")
+		scr_option("16", "exam_fail")
+		break;
+	} else{
+		scr_text("You passed!!! now get out.", "f4_exam_teacher")
+		break;
+	}
+	
+	case "exam1":
+	scr_text("Correct!", "f4_exam_teacher")
+	scr_text("Now how many degrees does a triangle have?", "f4_exam_teacher")
+	scr_option("360", "exam_fail")
+	scr_option("180", "exam2")
+	scr_option("90", "exam_fail")
+	break;
+	
+	case "exam2":
+	scr_text("Great!!! Now for the final question.", "f4_exam_teacher")
+	scr_text("What is X?", "f4_exam_teacher")
+	global.show_exam_question = true;
+	scr_option("16", "exam_fail")
+	scr_option("There is no X???", "exam3")
+	scr_option("26", "exam_fail")
+	break;
+	
+	case "exam3":
+	global.show_exam_question = false;
+	scr_text("Damn right. There is not X there, mb gng.", "f4_exam_teacher")
+	scr_text("But anyways, YOU PASS!!!", "f4_exam_teacher")
+	global.examPass = true;
+	break;
+	
+	case "exam_fail":
+	global.show_exam_question = false;
+	scr_text("You got that one wrong... you FAIL. But you can try again", "f4_exam_teacher")
+	break;
 }
 
 }

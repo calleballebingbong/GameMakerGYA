@@ -128,6 +128,24 @@ function scr_text(_text){
 			snd[page_number] = snd_voice_pluh;
 			break;
 			
+			case "f4_hallway_teacher":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
+			case "f4_fake_teacher":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
+			case "f4_exam_teacher":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
 			}
 		}
 	

@@ -2,3 +2,7 @@ visible = false
 global.VidarShow = false
 global.punkDoor = false;
 global.punkQuest = false;
+global.teacher1spoken = false;
+global.fakeTeacherDefeated = false;
+global.examPass = false;
+global.fakeFight1 = false;
