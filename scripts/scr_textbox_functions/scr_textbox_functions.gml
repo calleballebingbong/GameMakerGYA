@@ -146,6 +146,9 @@ function scr_text(_text){
 			snd[page_number] = snd_voice_pluh;
 			break;
 			
+			case "Locked":
+			textb_spr[page_number] = spr_menu_background_purple;
+			
 			}
 		}
 	

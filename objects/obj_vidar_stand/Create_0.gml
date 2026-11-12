@@ -6,3 +6,4 @@ global.teacher1spoken = false;
 global.fakeTeacherDefeated = false;
 global.examPass = false;
 global.fakeFight1 = false;
+global.doorUnlocked = false;

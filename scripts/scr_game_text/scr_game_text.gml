@@ -15,6 +15,7 @@ switch(_text_id) {
 	}
 	else if (global.punkQuest && global.punkDoor){
 		scr_text("Fine, Come on through.", "Punk")
+		global.doorUnlocked = true
 		break;
 	}
 	else {
@@ -25,6 +26,9 @@ switch(_text_id) {
 	case "Punk-through":
 		if (!global.punkQuest){
 		scr_text("Fat chance, unless you have something of worth to me.", "Punk")
+		scr_text("My rival is by the kiosk, show him whos boss and ill maybe let you through.", "Punk")
+		scr_text_color(19,24, c_yellow, c_yellow, c_yellow, c_yellow)
+		scr_text_float(19,24)
 		global.punkQuest = true;
 		break;
 		}
@@ -127,6 +131,11 @@ switch(_text_id) {
 		scr_text("You bested me!", "Enemy1")
 		break;
 		}
+
+	case "Locked":
+		scr_text("The door is locked.")
+	break;
+
 	case "f4_hallway_teacher":
 	if (!global.teacher1spoken){
 		scr_text("You are very late... go take the exam in classroom 4244 immediately","f4_hallway_teacher")
