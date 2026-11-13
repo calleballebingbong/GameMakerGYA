@@ -14,8 +14,8 @@
   ],
   "name":"Floor5",
   "parent":{
-    "name":"PatrikFloor",
-    "path":"folders/Rooms/PatrikFloor.yy",
+    "name":"Rooms",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

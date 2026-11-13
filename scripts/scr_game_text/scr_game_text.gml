@@ -191,7 +191,7 @@ switch(_text_id) {
 		scr_option("16", "exam_fail")
 		break;
 	} else{
-		scr_text("You passed!!! now get out.", "f4_exam_teacher")
+		scr_text("You passed!!! Go down to IB if you haven't already.", "f4_exam_teacher")
 		break;
 	}
 	
@@ -216,6 +216,7 @@ switch(_text_id) {
 	global.show_exam_question = false;
 	scr_text("Damn right. There is not X there, mb gng.", "f4_exam_teacher")
 	scr_text("But anyways, YOU PASS!!!", "f4_exam_teacher")
+	scr_text("Now go down to IB and get your diploma!!!", "f4_exam_teacher")
 	global.examPass = true;
 	break;
 	
@@ -223,6 +224,25 @@ switch(_text_id) {
 	global.show_exam_question = false;
 	scr_text("You got that one wrong... you FAIL. But you can try again", "f4_exam_teacher")
 	break;
+	
+	case "f4_hallway_student":
+	scr_text("Hi", "f4_hallway_student")
+	scr_option("Which classrooms are these?", "f4_hallway_student_ask")
+	scr_option("Bye", "f4_hallway_student_bye")
+	break;
+	
+	case "f4_hallway_student_ask":
+	scr_text("The classroom to the left is 4244 and the classroom here to the right is 4247!","f4_hallway_student")
+	break;
+	
+	case "f4_hallway_student_bye":
+	scr_text("Bye!!", "f4_hallway_student")
+	break;
+	
+	case "f4_toilet":
+	scr_text("THESE TOILETS ARE ALWAYS BUSY. IM GOING TO WET MYSELF", "f4_toilet")
+	break;
+	
 }
 
 }

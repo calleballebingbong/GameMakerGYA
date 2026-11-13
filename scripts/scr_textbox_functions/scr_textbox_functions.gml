@@ -149,6 +149,18 @@ function scr_text(_text){
 			case "Locked":
 			textb_spr[page_number] = spr_menu_background_purple;
 			
+			case "f4_hallway_student":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
+			case "f4_toilet":
+			speaker_sprite[page_number] = spr_npc_speak;
+			textb_spr[page_number] = spr_menu_background_purple;
+			snd[page_number] = snd_voice_pluh;
+			break;
+			
 			}
 		}
 	
